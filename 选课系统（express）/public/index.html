@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>学生选课系统</title>
+    <script type="text/javascript" src="frameworks/jquery-2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="frameworks/bootstrap-3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="frameworks/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
+
+     $(function(){
+            console.log($('p').eq(0));
+            $('p').on('click',function(){
+                //console.log(this);
+                //console.log($('p'));
+               var page = $(this).attr('page');
+               //console.log(page);
+                $('.article').load(page);
+            });
+            $('p').eq(2).trigger('click');
+        })
+  </script>
+</head>
+<body>
+    <div class="border">   
+        <div class="header">
+            <div class="shu"><img src="images/shu.jpg" alt=""></div>
+            <div class="title">
+                <p class="chinese">学生选课系统</p>
+                <p class="english">STUDENTCHOOSECOURSES.CN</p>
+            </div>
+        </div>
+        <!--内容 -->
+        <div class="bgimg">
+            <div class="nav">
+                <p page="pages/student.html"><a href="javascript:void(0)">学生管理</a></p>
+                <br>
+                <p page="pages/course.html"><a href="javascript:void(0)">课程管理</a></p>
+                <br>
+                <p page="pages/teacher.html"><a href="javascript:void(0)">教师管理</a></p>
+                <br>
+                <p page="pages/clazz.html"><a href="javascript:void(0)">班级管理</a></p>
+                <!-- <p page="pages/studentCourse.html"><a href="javascript:void(0)"></a></p> -->
+            </div>
+            <div class="line"></div>
+            <div class="article">
+            显示内容
+        </div>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>

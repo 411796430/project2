@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    <script type="text/javascript" src="frameworks/jquery-2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="frameworks/bootstrap-3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="frameworks/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/题库2.css">
+    <script type="text/javascript">
+        $(function(){
+            // console.log($('p').eq(0));
+            $('p').on('click',function(){
+                //console.log(this);
+                //console.log($('p'));
+               var page = $(this).attr('page');
+               //console.log(page);
+                $('.section').load(page);
+            });
+            $('p').eq(0).trigger('click');
+            var username=decodeURI(window.location.href.split('?')[1]);
+            console.log(username)
+            $('span').text(username);
+            $('#zhuxiao').on('click',function(){
+                window.location='l&r.html'
+            })
+        })
+    </script>
+</head>
+<body>
+    <header>
+        <div id="logo"><img src="images/theme/tk_logo.png" alt=""></div>
+        <div></div>
+        <div id="message">您好<span></span><a href="#" id="zhuxiao">退出</a></div>
+    </header>
+    <article>
+        <aside>
+            <ul>
+                <li>
+                    <details>
+                        <summary>题库</summary>
+                            <p page="pages/all.html"><a href="javascript:void(0)">全部题目</a></p>
+                            <p page="pages/题库2.html"><a href="javascript:void(0)">题目管理</a></p> 
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>试题管理</summary>
+                            <p page="pages/试题1.html"><a href="javascript:void(0)">试题列表</a></p>
+                            <p page="pages/试题2.html"><a href="javascript:void(0)">手工组卷</a></p>
+                    </details>
+                </li>
+                <li>
+                    <details>
+                        <summary>考试管理</summary>
+                            <p page="pages/考试1.html"><a href="javascript:void(0)">考试列表</a></p>
+                            <p page="pages/考试2.html"><a href="javascript:void(0)">考试安排</a></p>
+                    </details>
+                </li>
+            </ul>
+        </aside>
+        <section class="section">
+
+        </section>
+    </article>
+</body>
+</html>

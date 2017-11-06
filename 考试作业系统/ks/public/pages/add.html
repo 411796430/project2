@@ -1,0 +1,100 @@
+<div class="add">
+    <div>
+        <h4>题目添加</h4>
+        <span class="back"><a href="" id="back"><img src="../images/icon/cho_left.png" alt=""></a></span>
+    </div>
+    <form action="#" method="post">
+        <table class="table">
+            <tr>
+                <td><input type="text" list="datalist1" name="type"></td>
+                    <datalist id="datalist1">
+                        
+                        <option value="单选"></option>
+                        <option value="多选"></option>
+                        <option value="简答"></option>
+                        <option value="程序"></option>
+                    </datalist> 
+                <td>
+                    <select id="fx" onchange="getZsd()" name="direction">
+                        <option value="">方向</option>
+                        <option value="web">web</option>
+                        <option value="java">java</option>
+                        <option value="android">android</option>
+                        <option value="ios">ios</option>
+                    </select>
+                </td>
+                    
+                <td>
+                    <select id="zsd" name="knowledge">
+                        <option value="">知识点</option>
+                    </select>
+                </td>
+                <td><input type="text" list="datalist4" name="diff"></td>
+                    <datalist id="datalist4">
+                        <option value="容易"></option>
+                        <option value="中等"></option>
+                        <option value="难"></option>
+                        <option value="极难"></option>
+                    </datalist>
+            </tr>
+        </table>
+        <hr>
+        <h3>题干:</h3>
+        <textarea name="name" id="" cols="40" rows="5"></textarea>
+        <br>
+        <h3>答案:</h3>
+        <textarea name="answer" id="" cols="40" rows="5"></textarea>
+        
+        
+    </form>
+    <button id="sear">查看元素</button>
+    <div id="tktj"><button id="tj">提交</button><input type="reset" value="重写"></div>
+</div>
+<script>
+    var zsd=[
+        ['js','node','html','css'],
+        ['java1','java2','java3','java4'],
+        ['ad1','ad2','ad3','ad4'],
+        ['ios1','ios2','ios3','ios4']
+    ];
+    function getZsd(){
+        var sltFx=document.getElementById('fx');
+        
+        var sltZsd=document.getElementById('zsd');
+        var ld=zsd[sltFx.selectedIndex-1];
+        sltZsd.length=1;
+        for(var i=0;i<ld.length;i++){
+            sltZsd[i+1]=new Option(ld[i],ld[i])
+        }
+    }
+    $('#tj').on('click',function(){
+        let type=$('form input[name=type]').val();
+        let direction=$('form select[name=direction]').val();
+        let knowledge=$('form select[name=knowledge]').val();
+        let diff=$('form input[name=diff]').val();
+        let name=$('form textarea[name=name]').val();
+        let answer=$('form textarea[name=answer]').val();
+        var shuju={
+            name:name,
+            type:type,
+            direction:direction,
+            diff:diff,
+            knowledge:knowledge,
+            answer:answer
+        }
+        //console.log(shuju)
+        $.ajax('subject/save',{
+              'data':JSON.stringify(shuju),
+              'method':'POST',
+              'contentType':"application/json",//http协议
+              success:function(){
+              alert("添加成功");
+              window.location.reload()
+            
+          }
+        })
+        
+    
+    
+     })
+</script>

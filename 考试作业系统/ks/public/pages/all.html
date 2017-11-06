@@ -1,0 +1,143 @@
+<div id="all">
+<h3>题库</h3>
+<hr>
+
+<table class="find_data table">
+	<tbody>
+		<tr>
+			<th>题型</th>
+			<td a='全部'>全部</td>
+			<td a='单选'>单选</td>
+			<td a='多选'>多选</td>
+			<td a='简答'>简答</td>
+			<td a='程序'>程序</td>
+		</tr>
+		<tr>
+			<th>方向</th>
+			<td b='全部' val='0' class='guanlian'>全部</td>
+			<td b='web' val='1' class='guanlian'>web</td>
+			<td b='Java' val='2' class='guanlian'>Java</td>
+			<td b='android' val='3' class='guanlian'>android</td>
+			<td b='ios' val='4' class='guanlian'>ios</td>
+		</tr>
+		<tr id="know">
+			<th>知识点</th>
+			<td d="全部">全部</td>
+			<td class="wu" id="one">---</td>
+			<td class="wu" id="two">---</td>
+			<td class="wu" id="three">---</td>
+			<td class="wu" id="four">---</td>
+	 
+		</tr>
+		<tr>
+			<th>难度</th>
+			<td c="全部">全部</td>
+			<td c="容易">容易</td>
+			<td c="中等">中等</td>
+			<td c="难">难</td>
+			<td c="极难">极难</td>
+		</tr>
+	</tbody>
+</table>
+<br>
+
+<div>
+	<table class="table table-bordered tb1" id="alltb1">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>类型</th>
+      <th>方向</th>
+      <th>知识点</th>
+      <th>难易程度</th>
+    </tr>
+  </thead>
+  <tbody class="tbody">
+    
+  </tbody>
+</table>
+</div>
+</div> 
+<script type="text/javascript">
+
+	$(function(){
+
+		//隔行变色
+		$('.find_data').find('tr:odd').css('background','#808080');
+		$('.find_data').find('tr:even').css('background','#87CEEB');
+
+		var arr2 = new Array();
+		arr2[0]=["---","---","---","---"];
+		arr2[1]=['js','node','html','css'];
+		arr2[2]=['java1','java2','java3','java4'];
+		arr2[3]=['ad1','ad2','ad3','ad4'];
+		arr2[4]=['ios1','ios2','ios3','ios4'];
+
+		$('.guanlian').off();
+		$('.guanlian').on('click',function(){
+			$('.find_data tr:nth-of-type(3) .wu').text('');
+			var j = $(this).attr('val');
+			// console.log(j);
+			$('#one').text(arr2[j][0]);
+			$('#two').text(arr2[j][1]);
+			$('#three').text(arr2[j][2]);
+			$('#four').text(arr2[j][3]);
+		});
+
+		var type='全部';
+		var direction='全部';
+		var diff='全部';
+		var knowledge='全部';
+
+		$('.find_data td').on('click',function(){
+			$(this).css('background-color','#008001').siblings('td').css('background-color','');
+			if($(this).attr('a')){
+				if($(this).attr('a')=='全部'){
+					type="单选,多选,简答,程序";
+				}else{
+					type = $(this).text();
+				}
+			}else if($(this).attr('b')){
+				if($(this).attr('b')=='全部'){
+					direction="web,java,android,ios";
+				}else{
+					direction=$(this).text();
+				}
+			}else if($(this).attr('c')){
+				if($(this).attr('c')=='全部'){
+			 		diff="容易,中等,难,极难";
+				}else{
+					diff=$(this).text();
+				}
+			}else{
+				if($(this).attr('d')=='全部'){
+					knowledge="html,css,js,node,java1,java2,java3,java4,ad1,ad2,ad3,ad4,ios1,ios2,ios3,ios4";
+				}else{
+					knowledge=$(this).text();
+				}
+			}
+			// console.log(type,direction,diff);		
+			// 筛选题库
+			$.getJSON('/subject/find?type="'+type+'"&direction="'+direction+'"&diff="'+diff+'"&knowledge="'+knowledge+'"',function(data){
+				$('.data tbody').empty();
+                 console.log(data);
+                  $('.tbody').html('');
+				for(var i=0;i<data.length;i++){
+                    
+                    var newTr = $('<tr>'
+                    +'<td>'+data[i].id+'</td>'
+                    +'<td>'+data[i].type+'</td>'
+                    +'<td>'+data[i].direction+'</td>'
+                    +'<td>'+data[i].knowledge+'</td>'
+                    +'<td>'+data[i].diff+'</td>'
+                    +'</tr>');
+                    $('.tbody').append(newTr);
+                    }
+			});
+
+		});
+		$('.null').off();
+		$('.find_data td:first-of-type').trigger('click');
+
+	});
+</script>

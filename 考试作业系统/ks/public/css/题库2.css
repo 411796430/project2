@@ -1,0 +1,28 @@
+#tkdiv1{
+    font-size: 40px;
+    
+}
+#tkdiv2{
+    position: absolute;
+    right: 0px;
+    top:20px;
+}
+.add{
+    position: relative;
+    height: 480px;
+    overflow: auto
+}
+.back{
+    display: inline-block;
+    position: absolute;
+    top: -5px;
+    right: 0
+}
+#tktj{
+    position: absolute;
+    top:400px;
+    left: 400px;
+}
+#tksection{
+    height:500px; 
+}

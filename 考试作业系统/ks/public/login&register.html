@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>登录注册</title>
+    <script type="text/javascript" src="frameworks/jquery-2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="frameworks/bootstrap-3.3.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="frameworks/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/dlzc.css">
+    <script src="js/注册.js"></script>
+    <style>
+        #lar{
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            right: 0;
+            top:15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo"><img src="images/theme/tk_logo.png" alt=""></div>
+        <div></div>
+        <div id="lar">
+            <a href="#" id="loginA">登录</a>
+            <b>|</b>
+            <a href="#" id="registerA">注册</a>
+        </div>
+    </header>
+    <article></article>
+    <div class="outer" id="registerOut">
+        <h2>注册页面</h2>
+        <div class="tb">
+            <table>
+                <tr>
+                    <td>账号:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="bt">
+            
+            <button id="registerBtn">注册</button>
+        </div>
+    </div>
+    <div class="outer" id="loginOut">
+        <h2>登录页面</h2>
+        <div class="tb">
+            <table>
+                <tr>
+                    <td>账号:</td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>密码:</td>
+                    <td><input type="password" name="password"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="bt">
+            <button id="loginBtn">login</button>
+            
+        </div>
+    </div>
+    <script>
+        $('#registerA').on('click',function(){
+            $('#loginOut').css('display','none');
+            $('#registerOut').css('display','block');
+            
+        });
+        $('#loginA').on('click',function(){
+            
+            $('#registerOut').css('display','none');
+            $('#loginOut').css('display','block');
+        });
+        $('article').on('click',function(){
+            $('#loginOut').css('display','none');
+            $('#registerOut').css('display','none');
+        })
+    </script>
+</body>
+</html>

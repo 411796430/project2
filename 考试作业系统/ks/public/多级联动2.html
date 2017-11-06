@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>题库</h3>
+<hr>
+
+<table class="find_data">
+	<tbody>
+		<tr>
+			<th>题型</th>
+			<td a='全部'>全部</td>
+			<td a='单选题'>单选题</td>
+			<td a='多选题'>多选题</td>
+			<td a='简答题'>简答题</td>
+			<td class="null"></td>
+		</tr>
+		<tr>
+			<th>方向</th>
+			<td b='全部' val='0' class='guanlian'>全部</td>
+			<td b='WebUI' val='1' class='guanlian'>WebUI</td>
+			<td b='Java' val='2' class='guanlian'>Java</td>
+			<td b='大数据' val='3' class='guanlian'>大数据</td>
+			<td b='非IE' val='4' class='guanlian'>非IE</td>
+		</tr>
+		<tr id="know">
+			<th>知识点</th>
+			<td d="全部">全部</td>
+			<td class="wu" id="one">---</td>
+			<td class="wu" id="two">---</td>
+			<td class="wu" id="three">---</td>
+			<td class="wu" id="four">---</td>
+	 
+		</tr>
+		<tr>
+			<th>难度</th>
+			<td c="全部">全部</td>
+			<td c="容易">容易</td>
+			<td c="中等">中等</td>
+			<td c="难">难</td>
+			<td class="null"></td>
+		</tr>
+	</tbody>
+</table>
+<br>
+
+<div>
+	<table class="table data table-bordered">
+		<thead>
+			<th>编号</th>
+			<th>题型</th>
+			<th>题干</th>
+			<th>选项</th>
+			<th>答案</th>
+			<th>分值</th>
+			<th>复杂度</th>
+			<th>方向</th>
+			<th>上传人</th>
+			<th>上传时间</th>
+			<th>知识点</th>
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
+</div>
+
+<script type="text/javascript">
+
+	$(function(){
+
+		//隔行变色
+		$('.find_data').find('tr:odd').css('background','#808080');
+		$('.find_data').find('tr:even').css('background','#87CEEB');
+
+		var arr2 = new Array();
+		arr2[0]=["---","---","---","---"];
+		arr2[1]=["html","css","js","node"];
+		arr2[2]=["j2ee","jdbc","jsp","xml"];
+		arr2[3]=["linux","mysql","kvm","docker"];
+		arr2[4]=["语文","数学","英语","物理"];
+
+		$('.guanlian').off();
+		$('.guanlian').on('click',function(){
+			$('.find_data tr:nth-of-type(3) .wu').text('');
+			var j = $(this).attr('val');
+			// console.log(j);
+			$('#one').text(arr2[j][0]);
+			$('#two').text(arr2[j][1]);
+			$('#three').text(arr2[j][2]);
+			$('#four').text(arr2[j][3]);
+		});
+
+		var type='全部';
+		var direction='全部';
+		var complex='全部';
+		var know='全部';
+
+		$('.find_data td').on('click',function(){
+			$(this).css('background-color','#008001').siblings('td').css('background-color','');
+			if($(this).attr('a')){
+				if($(this).attr('a')=='全部'){
+					type="单选题,多选题,简答题";
+				}else{
+					type = $(this).text();
+				}
+			}else if($(this).attr('b')){
+				if($(this).attr('b')=='全部'){
+					direction="WebUI,Java,大数据,非IE";
+				}else{
+					direction=$(this).text();
+				}
+			}else if($(this).attr('c')){
+				if($(this).attr('c')=='全部'){
+					complex="容易,中等,难";
+				}else{
+					complex=$(this).text();
+				}
+			}else{
+				if($(this).attr('d')=='全部'){
+					know="html,css,js,node,j2ee,jdbc,jsp,xml,linux,mysql,kvm,docker,语文,数学,英语,物理";
+				}else{
+					know=$(this).text();
+				}
+			}
+			// console.log(type,direction,complex);		
+			// 筛选题库
+			$.getJSON('/tiku/find?type="'+type+'"&direction="'+direction+'"&complex="'+complex+'"&know="'+know+'"',function(data){
+				$('.data tbody').empty();
+				// console.log(data);
+				data.forEach(function(item){
+					var newTr = $('<tr>'
+						+'<td><input type="checkbox" value="'+item.id+'"></td>'
+						+'<td>'+item.type+'</td>'
+						+'<td>'+item.question+'</td>'
+						+'<td>'+item.options+'</td>'
+						+'<td>'+item.answer+'</td>'
+						+'<td>'+item.score+'</td>'
+						+'<td>'+item.complex+'</td>'
+						+'<td>'+item.direction+'</td>'
+						+'<td>'+item.author+'</td>'
+						+'<td>'+item.time+'</td>'
+						+'<td>'+item.know+'</td>'
+					+'</tr>');
+					$('.data tbody').append(newTr);
+				});
+			});
+
+		});
+		$('.null').off();
+		$('.find_data td:first-of-type').trigger('click');
+
+	});
+</script>
+ 
+</body>
+</html>

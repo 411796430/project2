@@ -1,0 +1,233 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+header{
+    height: 50px;
+    background-color: #232323;
+     /* position: fixed;
+    left: 0px;
+    top:0px  */
+}
+#headerone{
+    float: left;
+    margin-left: 100px;
+    width: 300px;
+    margin-top: 4px;
+}
+li{
+    list-style: none;
+}
+
+#headertwo{
+    height: 40px;
+    float: right;
+}
+#headertwo ul.clh ul.clt{
+            display: none; 
+           list-style-type: none;
+            
+       }
+        #headertwo ul.clh li:hover ul.clt{
+            display: block;
+        }
+        #headertwo>ul{
+            margin: 10px;
+            border-radius: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        #headertwo>ul li{
+            position: relative;
+        }
+        #headertwo>ul li .clo1{
+            position: absolute;
+            top: 0;
+            right: 60px;
+        }   
+        #headertwo>ul li:hover> ul{
+            margin: 0px;
+            padding: 0px;
+        }
+        #headertwo>ul li:hover> ul li{
+            float:none;
+            display: block;
+        }
+        #headertwo>ul li{
+            float: left;
+            margin-right: 30px;
+            list-style: none;
+        }
+        #headertwo .clf{
+            position:absolute;
+            top:17px;
+            right:0px;
+        }
+        #headertwo>ul li .clo2{
+            position: absolute;
+            top: 0;
+            right: 30px;
+        }
+        #headertwo>ul li .clo3{
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
+        #headertwo .cls{
+            position:absolute;
+            top:17px;
+            right:-40px;
+        } 
+    a:link{
+        text-decoration: none;
+    }
+    a:hover{
+        color: red;
+    }
+    a{
+        color: black;
+    }
+aside{
+    height: 112px;
+    padding-top: 50px
+}
+#asideone{
+    width: 311px;
+    height: 55px;
+    margin:0 auto;
+    
+}
+#asidetwo{
+    width: 190px;
+    height: 43px;
+    float: right;
+    margin-top: -40px;
+}
+#search{
+    width:190px;
+    height: 40px;    
+}
+#asidethree ul li{
+    float: left;
+    margin-right: 20px;
+    font-size: 15px;
+}
+#asidethree{
+    width: 700px;
+    height: 25px;
+    margin:0 auto;
+    padding-top: 30px;
+}
+nav{
+    height: 180px;
+    background-color: #ffffff;
+    
+}
+nav #navone{
+    width: 1889px;
+    height: 142px;
+    margin: 0 auto;
+    background-color: #000000;
+    padding-top: 22px
+}
+nav #navone #navtwo{
+    width: 979px;
+    height: 188px;
+    margin: 0 auto;
+}
+article{
+    height: 5447px;
+    background-color: #ffffff;
+}
+article #sectionone{
+    width: 1889px;
+    height: 2102px;
+    margin: 0 auto;
+}
+article #sectiontwo{
+    width: 1409px;
+    height: 901px;
+    margin: 0 auto
+}
+article #sectionthree{
+    width: 1672px;
+    height: 967px;
+    margin: 0 auto;
+}
+article #sectionfour{
+    width: 1890px;
+    height: 1028px;
+    margin: 0 auto;
+}
+hr{
+    width: 1793px;
+    border: 1px solid pink;   
+}
+article #sectionfive{
+    width: 1107px;
+    height: 395px;
+    margin: 0 auto;
+}
+span{
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    right: 100px;
+    top: 100px;
+}
+footer{
+    height: 164px;
+    background-color: #232323;
+    padding: 10px;
+}
+footer table{
+     width: 894px;
+     height: 140px;
+     margin: 0 auto;
+}
+footer table td{
+    text-align:center
+}
+address{
+    height: 170px;
+    background-color: #232323;
+}
+address #address{
+    width: 900px;
+    height: 170px;
+    margin: 0 auto;
+    background-color: #232323;
+}
+address #address #ao{
+    width:121px;
+    height: 72px;
+    float:left;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+address #address #atw{
+    width: 380px;
+    height: 37px;
+    float: left;
+    margin-left: 70px;
+    margin-top: 60px;
+}
+address #address #atw ul li{
+    float: left;
+    margin-right: 10px;
+}
+address #address #ath{
+    width: 245px;
+    height: 20px;
+    float: left;
+    margin-top: 5px;
+    margin-left: 85px;
+}
+address #address #af{
+    width:175px;
+    height: 63px;
+    float: right;
+     margin-top: -35px;
+    margin-right: 50px; 
+}
+

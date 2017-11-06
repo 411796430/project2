@@ -1,0 +1,137 @@
+<div id="all">
+<div style="font-size:40px" id="alldiv1">全部题目</div>
+<table class="table" id="alltb2">
+    <tr id="tr1">
+        <td>题型</td>
+        <td>全部</td>
+        <td>单选</td>
+        <td>多选</td>
+        <td>简答</td>
+        <td>程序</td>
+    </tr>
+    <tr id="tr2">
+        <td>方向</td>
+        <td>全部</td>
+        <td>web</td>
+        <td>java</td>
+        <td>android</td>
+        <td>ios</td>
+    </tr>
+    <tr id="tr3">
+        <td>知识点</td>
+        <td>全部</td>
+        <td>html</td>
+        <td>node</td>
+        <td>js</td>
+        <td>css</td>
+    </tr>
+    <tr id="tr4">
+        <td>难度</td>
+        <td>全部</td>
+        <td>容易</td>
+        <td>中等</td>
+        <td>难</td>
+        <td>极难</td>
+    </tr>
+</table>
+<table class="table table-bordered tb1" id="alltb1">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>类型</th>
+      <th>方向</th>
+      <th>知识点</th>
+      <th>难易程度</th>
+    </tr>
+  </thead>
+  <tbody class="tbody">
+    
+  </tbody>
+</table>
+</div>
+<script>
+  //筛选表格的样式
+  $('#alltb2').find('tr:even').css('background','grey');
+  $('#alltb2').find('tr:odd').css('background','blue');
+  $('#alltb2 tr:even').attr('bg','grey');
+  $('#alltb2 tr:odd').attr('bg','blue');
+  $('#alltb2 tr td').mouseover(function(){
+    // $('#alltb2 tr td').css('background','white');
+    // var ppp=$(this).html()
+    // console.log(ppp)
+    $(this).css('background','green');
+  });
+  
+  $('#alltb2 tr td').mouseout(function(){
+    var bgc=$(this.parentNode).attr('bg');
+    //console.log(bgc)
+    $(this).css('background',bgc)
+  })
+
+  //联动
+  var arr2 = new Array();
+		arr2[0]=["---","---","---","---"];
+		arr2[1]=['js','node','html','css'];
+		arr2[2]=['java1','java2','java3','java4'];
+		arr2[3]=['ad1','ad2','ad3','ad4'];
+		arr2[4]=['ios1','ios2','ios3','ios4'];
+    
+  $(function(){
+      //查询全部
+        $.getJSON('subject/findAll',function(data){
+      data.forEach(function(item){
+        var newTr = $('<tr>'
+          +'<td>'+item.id+'</td>'
+          +'<td>'+item.type+'</td>'
+          +'<td>'+item.direction+'</td>'
+          +'<td>'+item.knowledge+'</td>'
+          +'<td>'+item.diff+'</td>'
+        +'</tr>');
+        $('.tbody').append(newTr);
+      });
+    });
+    //
+    $('#alltb2 tr td').on('click',function(){
+      var ppp=$(this).html();
+
+      console.log(ppp);
+      if(ppp=='全部'){
+          $('.tbody').html('');
+          $.getJSON('subject/findAll',function(data){
+              data.forEach(function(item){
+              var newTr = $('<tr>'
+                +'<td>'+item.id+'</td>'
+                +'<td>'+item.type+'</td>'
+                +'<td>'+item.direction+'</td>'
+                +'<td>'+item.knowledge+'</td>'
+                +'<td>'+item.diff+'</td>'
+              +'</tr>');
+              $('.tbody').append(newTr);
+          });
+        });
+      }else{
+          $.getJSON('subject/query/'+ppp,function(data){
+            console.log(data);
+            $('.tbody').html('');
+            for(var i=0;i<data.length;i++){
+            
+            var newTr = $('<tr>'
+              +'<td>'+data[i].id+'</td>'
+              +'<td>'+data[i].type+'</td>'
+              +'<td>'+data[i].direction+'</td>'
+              +'<td>'+data[i].knowledge+'</td>'
+              +'<td>'+data[i].diff+'</td>'
+            +'</tr>');
+            $('.tbody').append(newTr);
+            }
+          });
+          var p1=$('#tr1').html()
+          var p1=$('#tr4').html()
+          var p1=$('#tr4').html()
+          var p1=$('#tr5').html()
+        }
+    })
+
+
+    });
+</script>

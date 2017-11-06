@@ -1,0 +1,202 @@
+
+body{
+    width: 750px;
+    height: 1920px;
+}
+ul li{
+    list-style: none
+}
+#outer{
+    width: 750px;
+    height: 1920px;
+}
+header{
+    width: 750px;
+    height: 554px;
+    position: relative
+}
+nav{
+    width: 750px;
+    height: 207px;
+    background-color: #272727;
+    position: relative
+}
+#hd1{
+    width: 750px;
+    height: 347px;
+}
+nav #ul1 li{
+    height: 30px;
+    list-style: none;
+    float: left;
+    margin-left: 20px;
+    text-align: center;
+    line-height:30px    
+}
+nav .n{
+    width: 20px;
+    height: 30px;
+}
+nav #ul1{
+    position: absolute;
+    left: 30px;
+    top: 90px;
+}
+nav input{
+    width:200px;
+    height: 30px;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none   
+}
+#ss{
+    width:252px;
+    height: 32px; 
+    position: absolute;
+    margin: 90px 300px;
+    background-color: #4b4b4d
+}
+#ss img{
+    width: 50px;
+    height: 32px;
+    float: left
+}
+#xr{
+    position: absolute;
+    right: 150px;
+    top: 90px;
+}
+#ul2 li{
+    float: left;
+    list-style: none;   
+    width: 50px;
+    height: 35px;
+    font-size: 25px;
+    color: white;
+    margin: 10px;   
+}
+#ul2{
+    position: absolute;
+    margin-top: 160px;
+    
+}
+#ul2 li.dikuang{
+    color: orange;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: orange
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+#hd1{
+	width: 660px;
+	height: 315px;
+	margin: 30px auto;
+	
+	background-color: #f1f1f1;
+	overflow: hidden;
+}
+#lunbo{
+	width: 660px;
+	height: 315px;
+	float: left;
+	background-color: palegoldenrod;
+    position: relative;
+    
+}
+#hd1 .top{
+	width: 2000px;
+	height: 315px;
+	
+	position: relative;
+	left: 0;
+	
+}
+#hd1 .top li{
+	float: left;
+	width: 198px;
+	height: 306px;
+	border: 1px solid #A0A0A0;
+	margin-left: 15px;
+}
+#hd1 .top .foucs{
+	border: 5px solid orange;
+}
+#hd1 .top li img{
+	width: 198px;
+	height: 306px;
+}
+
+#hd2{
+    width: 660px;
+    height: 35px;
+    position: absolute;
+    left: 45px;
+    top: 552px           
+}
+#hd2 .xia{
+	width: 660px;
+	height: 35px;
+	background-color: palegreen;
+	float: left
+}
+/*num的样式*/
+#hd2 #num{
+	display: block;
+	width: 200px;
+	height: 10px;
+	margin: 10px auto;
+}
+#hd2 #num li{
+	width: 30px;
+	height: 10px;
+	border-radius: 5px;
+	background-color: #fff;
+	float: left;
+	margin-left: 10px;
+}
+#hd2 #num .click{
+	background-color: orange;
+}
+article{
+    width: 750px;
+    height: 685px;
+    
+    margin-top: 34px;
+}
+.article1{
+    width: 750px;
+    height: 60px;
+}
+.article2{
+    width: 750px;
+    height: 625px;
+    overflow: hidden
+}
+.au1 li{
+    float: left;
+    font-size: 25px;
+    margin: 10px;
+}
+li.al1{
+    color: orange;
+    border-bottom: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: orange
+}
+#mmp1{
+    width: 750px;
+    height: 625px;
+    background-color: red
+}
+#mmp2{
+    width: 750px;
+    height: 625px;
+    background-color: green
+}

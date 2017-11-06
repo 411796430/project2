@@ -1,0 +1,145 @@
+*{
+    margin: 0
+}
+body{
+    width: 750px;
+    height: 1400px;
+    
+}
+ul li{
+    list-style: none
+}
+ul li ul li{
+    list-style: none
+}
+#d1{
+    width: 750px;
+    height: 1400px;
+    background-image: url(../项目-images/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover
+}
+#d2{
+    width: 730px;
+    height: 730px;
+    border: 1px dashed red;
+    border-radius: 50%;
+    position: absolute;
+    top: 290px
+}
+#d3{
+    width: 730px;
+    height: 730px;
+    border: 1px dashed red;
+    border-radius: 50%;
+    position: absolute;
+    top: 290px;
+    left: 20px
+}
+#d4{
+    width: 680px;
+    height: 680px;
+    border-radius: 50%;
+    position: absolute;
+    top: 310px;
+    left: 35px;
+    
+    background-color:rgba(105, 105, 103, 0.4)
+}
+#f1{
+    width: 145px;
+    height: 47px;
+    margin: 20px auto;
+    
+}
+#f1 img{
+    width: 145px;
+    height: 47px;
+    
+}
+ul li{
+    list-style: none;
+    border: 1px solid white;
+    width: 380px;
+    height: 70px;
+    
+    font-size: 30px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 38px auto;
+
+}
+.i1{
+    font-size: 35px;    
+    width: 150px;
+    height: 40px;
+    border-style: none;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none
+}
+.l1{
+    border-style: none;
+    font-size: 25px;    
+}
+#span{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid orange;
+    
+}
+.l1 input{
+    background-color: orange;
+    width: 180px;
+    height: 50px;
+    font-size: 30px;
+    border: 1px solid orange;
+    border-radius: 3%;
+    display: inline-block;
+    margin-left: 80px;
+      
+}
+#span img{
+    width: 25px;
+    height: 20px;
+    display: none
+}
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+}
+#span2{
+    float: right;
+}
+button{
+    font-size: 20px;
+    width: 70px;
+    height: 25px;
+    color: orange
+}
+#yz{
+    width: 140px;
+
+}
+#d5{
+    width: 5px;
+    height: 5px;
+    border: 5px solid orange;
+    box-sizing: border-box;
+    position: absolute;
+    left: 370px;
+    top: 288px;
+    border-radius: 50%
+}
+#d6{
+    width: 5px;
+    height: 5px;
+    border: 5px solid orange;
+    box-sizing: border-box;
+    position: absolute;
+    left: 370px;
+    top: 1018px;
+    border-radius: 50%
+}
+
